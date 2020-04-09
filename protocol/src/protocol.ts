@@ -1351,6 +1351,24 @@ export interface DidChangeWatchedFilesRegistrationOptions {
 	 * The watchers to register.
 	 */
 	watchers: FileSystemWatcher[];
+
+	/**
+	 * Whether to also receive didChangeWatchedFileSystem events
+	 * for the filesystems affected by this registration.
+	 *
+	 * If not supplied, defaults to false.
+	 */
+	watchFileSystem?: boolean;
+	/**
+	 * The threshold of how many file change events to squeeze into a
+	 * FileSystemChange notification before the 'reloadAll' flag would be set.
+	 *
+	 * A value of -1 means "no threshold" (beyond any imposed by the client
+	 * for sanity/stability reasons).
+	 *
+	 * If not supplied, defaults to -1.
+	 */
+	fileChangeThreshold?: number;
 }
 
 export interface FileSystemWatcher {
